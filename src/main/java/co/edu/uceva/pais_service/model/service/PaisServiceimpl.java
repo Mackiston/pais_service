@@ -1,32 +1,48 @@
 package co.edu.uceva.pais_service.model.service;
 
+import co.edu.uceva.pais_service.model.dao.IPaisDao;
 import co.edu.uceva.pais_service.model.entities.Pais;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public class PaisServiceimpl implements IPaisService {
+/**
+ * Esta calse implementa el servicio de pao
+ *un servicio
+ *  */
+
+@Service
+public class PaisServiceimpl implements  IPaisService{
+
+    @Autowired
+    IPaisDao paisDao;
     @Override
     public Pais save(Pais pais) {
-        return null;
+        return paisDao.save(pais);
     }
 
     @Override
     public void delete(Pais pais) {
-
+        paisDao.delete(pais);
     }
 
     @Override
     public Pais update(Pais pais) {
-        return null;
+        return paisDao.save(pais);
     }
 
+    /**
+     * Este metodo lista los paises guardados
+     *@returnunalista de pasies
+     */
     @Override
     public List<Pais> findAll() {
-        return null;
+        return (List<Pais>)paisDao.findAll();
     }
 
     @Override
-    public Pais findByID(Long ID) {
+    public Pais findById(Long id) {
         return null;
     }
 }
